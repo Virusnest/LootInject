@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class InjectedLootData {
     public Map<Identifier, LootTable> injectedTables = new HashMap<>();
-    public static String INJECT_PATH = "injected_loot_table";
+    public static String INJECT_PATH = "loot_inject";
     public void LoadInjectedTables(ResourceManager manager) {
         manager.findResources(INJECT_PATH, path -> path.getPath().endsWith(".json")).forEach(this::LoadInjectedTable);
     }
