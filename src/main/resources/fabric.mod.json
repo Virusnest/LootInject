@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "lootinject",
+  "version": "${version}",
+  "name": "LootInject",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/lootinject/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.virusnest.lootinject.Lootinject"
+    ]
+  },
+  "mixins": [
+    "lootinject.mixins.json",
+    {
+      "config": "lootinject.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
