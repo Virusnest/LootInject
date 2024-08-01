@@ -8,6 +8,7 @@ import com.mojang.serialization.JsonOps;
 import net.fabricmc.fabric.api.loot.v2.FabricLootTableBuilder;
 import net.fabricmc.fabric.impl.resource.loader.FabricLifecycledResourceManager;
 import net.minecraft.loot.LootTable;
+import net.minecraft.registry.ReloadableRegistries;
 import net.minecraft.resource.JsonDataLoader;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
@@ -27,9 +28,11 @@ public class InjectedLootData {
 
         //remove json and injected_loot_table from the path only from the end and start
         id = Identifier.of(id.getNamespace(), id.getPath().substring(INJECT_PATH.length() + 1, id.getPath().length() - 5));
+
         Lootinject.LOGGER.info(id.toString());
         try {
             //load the json file to a LootTable Object
+
             BufferedReader reader = new BufferedReader(resource.getReader());
             JsonObject json = new JsonParser().parse(reader).getAsJsonObject();
             LootTable table = LootTable.CODEC.parse(new Dynamic<>(JsonOps.INSTANCE, json)).result().get();
@@ -38,5 +41,8 @@ public class InjectedLootData {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void Clear(){
+        injectedTables.clear();
     }
 }
