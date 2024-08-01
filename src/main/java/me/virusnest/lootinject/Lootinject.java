@@ -1,34 +1,11 @@
 package me.virusnest.lootinject;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
-import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
-import net.fabricmc.fabric.mixin.loot.LootTableAccessor;
-import net.minecraft.block.Blocks;
-import net.minecraft.data.server.DynamicRegistriesProvider;
-import net.minecraft.data.server.loottable.LootTableGenerator;
-import net.minecraft.data.server.loottable.LootTableProvider;
-import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.condition.AnyOfLootCondition;
-import net.minecraft.loot.entry.DynamicEntry;
-import net.minecraft.loot.entry.GroupEntry;
-import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootTableEntry;
-import net.minecraft.registry.DynamicRegistryManager;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.resource.*;
-import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.spongepowered.asm.mixin.Interface;
-
-import java.io.InputStream;
 
 public class Lootinject implements ModInitializer {
 
