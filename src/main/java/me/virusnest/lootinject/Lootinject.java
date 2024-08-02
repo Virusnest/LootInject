@@ -22,7 +22,7 @@ public class Lootinject implements ModInitializer {
                 // We make the pool inject table from data
                 for (InjectData injectTable : data.injectedTables.get(table.getValue())) {
                     LootPool.Builder poolBuilder = LootPool.builder();
-                    poolBuilder.with(LootTableEntry.builder(injectTable.table));
+                    poolBuilder.with(LootTableEntry.builder(injectTable.getTable()));
                     builder.pool(poolBuilder);
                 }
             }

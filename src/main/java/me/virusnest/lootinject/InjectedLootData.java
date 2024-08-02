@@ -4,6 +4,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.serialization.Dynamic;
 import com.mojang.serialization.JsonOps;
+import net.minecraft.loot.LootTable;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
@@ -27,10 +29,13 @@ public class InjectedLootData {
             BufferedReader reader = new BufferedReader(resource.getReader());
             JsonObject json = new JsonParser().parse(reader).getAsJsonObject();
             InjectData inject = InjectData.CODEC.parse(new Dynamic<>(JsonOps.INSTANCE, json)).result().get();
-            if(!injectedTables.containsKey(inject.inject.getValue())) {
-                injectedTables.put(inject.inject.getValue(), new ArrayList());
+            for (RegistryKey<LootTable> key : inject.getInject()) {
+                if(!injectedTables.containsKey(key.getValue())){
+                    injectedTables.put(key.getValue(), new ArrayList());
+                }
+                injectedTables.get(key.getValue()).add(inject);
             }
-            injectedTables.get(inject.inject.getValue()).add(inject);
+
 
         } catch (Exception e) {
             e.printStackTrace();
