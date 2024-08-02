@@ -3,9 +3,7 @@ package me.virusnest.lootinject;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.LootTableEntry;
-import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +23,6 @@ public class Lootinject implements ModInitializer {
                 for (InjectData injectTable : data.injectedTables.get(table.getValue())) {
                     LootPool.Builder poolBuilder = LootPool.builder();
                     poolBuilder.with(LootTableEntry.builder(injectTable.table));
-                    LOGGER.info("Injecting loot table " + injectTable.table.getValue() + " into " + table.getValue());
                     builder.pool(poolBuilder);
                 }
             }
