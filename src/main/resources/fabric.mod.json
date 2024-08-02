@@ -3,10 +3,10 @@
   "id": "lootinject",
   "version": "${version}",
   "name": "LootInject",
-  "description": "",
-  "authors": [],
+  "description": "A simple mod that allows injecting a loot table into an existing table",
+  "authors": ["Virusnest"],
   "contact": {},
-  "license": "All-Rights-Reserved",
+  "license": "MIT",
   "icon": "assets/lootinject/icon.png",
   "environment": "*",
   "entrypoints": {
